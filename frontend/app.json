@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Estate Community",
+    "slug": "estate-community-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "https://img.icons8.com/color/512/apartment.png",
+    "scheme": "estate-community",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "https://img.icons8.com/color/512/apartment.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.estate.community",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Location is used for estate mapping",
+        "NSCameraUsageDescription": "Camera access for profile photos"
+      }
+    },
+    "android": {
+      "package": "com.estate.community",
+      "permissions": ["INTERNET", "ACCESS_FINE_LOCATION", "CAMERA"]
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}

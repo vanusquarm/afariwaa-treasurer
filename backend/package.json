@@ -1,0 +1,52 @@
+{
+  "name": "estate-community-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Estate Community App",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "jest --forceExit",
+    "lint": "eslint src --ext .ts",
+    "seed": "ts-node src/scripts/seedDatabase.ts"
+  },
+  "keywords": ["estate", "community", "management", "api"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.1.0",
+    "joi": "^17.11.0",
+    "express-async-errors": "^3.1.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.6",
+    "helmet": "^7.0.0",
+    "express-rate-limit": "^7.0.0",
+    "morgan": "^1.10.0",
+    "compression": "^1.7.4",
+    "http-status-codes": "^2.3.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.20",
+    "@types/node": "^20.9.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/multer": "^1.4.10",
+    "@types/nodemailer": "^6.4.13",
+    "@types/jest": "^29.5.8",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "eslint": "^8.52.0",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0"
+  }
+}
