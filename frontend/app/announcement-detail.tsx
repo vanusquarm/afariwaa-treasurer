@@ -1,7 +1,7 @@
-import { View, ScrollView, StyleSheet, SafeAreaView, Text, Image } from 'react-native';
+import { useState } from 'react';
+import { View, ScrollView, StyleSheet, SafeAreaView, Text, Image, TouchableOpacity } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ArrowLeft, Heart, Share2, Eye } from 'lucide-react-native';
-import { TouchableOpacity, useState } from 'react-native';
 import { useAnnouncementStore } from '../store/useAnnouncementStore';
 import { COLORS } from '../constants/colors';
 import Button from '../components/Button';

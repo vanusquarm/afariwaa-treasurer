@@ -1,3 +1,4 @@
+import 'react-native-get-random-values';
 import { Stack } from 'expo-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -11,35 +12,32 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <QueryClientProvider client={queryClient}>
-          <StatusBar barStyle="dark-content" />
-          <Stack screenOptions={{ headerShown: false }}>
+          <StatusBar style="dark" />
+          <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(auth)" />
             <Stack.Screen name="(tabs)" />
             <Stack.Screen
               name="resident-detail"
               options={{
                 presentation: 'card',
-                animationEnabled: true,
               }}
             />
             <Stack.Screen
               name="announcement-detail"
               options={{
                 presentation: 'card',
-                animationEnabled: true,
               }}
             />
             <Stack.Screen
               name="event-detail"
               options={{
                 presentation: 'card',
-                animationEnabled: true,
               }}
             />
             <Stack.Screen
               name="maintenance-detail"
               options={{
                 presentation: 'card',
-                animationEnabled: true,
               }}
             />
           </Stack>
