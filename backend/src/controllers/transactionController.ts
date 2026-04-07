@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { AuthRequest, PaginationQuery } from '@types/index';
+import { AuthRequest, PaginationQuery } from '../types/index';
 import { TransactionService } from '@services/transactionService';
 import { sendSuccess } from '@utils/response';
 
@@ -17,7 +17,19 @@ export class TransactionController {
       search: req.query.search as string,
     };
 
-    const result = await TransactionService.getAll(query);
+  const homeId = req.query.homeId as string | undefined;
+  const category = req.query.category as string | undefined;
+  let result;
+
+  // Apply conditional logic
+  if (homeId) {
+    result = await TransactionService.getByHome(homeId, query);
+  } else if (category) {
+    result = await TransactionService.getByCategory(category, query);
+  } else {
+    result = await TransactionService.getAll(query);
+  }
+
     sendSuccess(res, result, 'Transactions retrieved successfully');
   }
 
@@ -32,7 +44,7 @@ export class TransactionController {
       limit: parseInt(req.query.limit as string) || 10,
     };
 
-    const result = await TransactionService.getByHome(req.params.homeId, query);
+    const result = await TransactionService.getByHome(req.query.homeId as string, query);
     sendSuccess(res, result, 'Home transactions retrieved successfully');
   }
 
@@ -42,7 +54,7 @@ export class TransactionController {
       limit: parseInt(req.query.limit as string) || 10,
     };
 
-    const result = await TransactionService.getByCategory(req.params.category, query);
+    const result = await TransactionService.getByCategory(req.query.category as string, query);
     sendSuccess(res, result, 'Category transactions retrieved successfully');
   }
 

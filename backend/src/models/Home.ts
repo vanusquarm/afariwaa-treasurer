@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { IHome } from '@types/index';
+import { IHome } from '../types/index';
 
 const homeSchema = new Schema<IHome>(
   {

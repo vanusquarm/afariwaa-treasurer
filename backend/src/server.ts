@@ -4,12 +4,14 @@ import helmet from 'helmet';
 import compression from 'compression';
 import morgan from 'morgan';
 import cors from 'cors';
-import { connectDatabase } from '@config/database';
-import env from '@config/env';
+import { connectDatabase } from './config/database';
+import env from './config/env';
 import routes from '@routes/index';
 import { errorHandler } from '@middleware/errorHandler';
 import { limiter } from '@middleware/rateLimiter';
 import { AppError } from '@utils/appError';
+import swaggerSpec from './config/swagger';
+import swaggerUi from 'swagger-ui-express';
 
 const app: Express = express();
 
@@ -23,6 +25,8 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(limiter);
 
 app.use(routes);
+// Swagger route
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   throw new AppError('Route not found', 404);

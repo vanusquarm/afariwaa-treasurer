@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { User } from './User';
-import { IResident } from '@types/index';
+import { IResident } from '../types/index';
 
 const residentSchema = new mongoose.Schema<IResident>(
   {
